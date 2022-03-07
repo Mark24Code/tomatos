@@ -8,19 +8,15 @@ require 'optparse'
 stop_follow = lambda { puts 'See you later :D' }
 trap("INT") { 
   stop_follow.call
-  exit!
-}
-
-at_exit {
-  stop_follow.call
+  exit
 }
 
 
 options = {}
 OptionParser.new do |parser|
-  parser.banner = "Usage: tomato.rb [options]"
+  parser.banner = "Usage: tomatos [options]"
 
-  parser.on("-tTIME", "--time=TIME", "Time delta: `15m` means 15mins, `30s` means 30secs, default use mins ") do |v|
+  parser.on("-tTIME", "--time=TIME", "Time delta: `15m` means 15 min, `30s` means 30 sec, default use 15min ") do |v|
     options[:time] = v
   end
   parser.on("-mMESSAGE", "--message=MESSAGE", "Message for this time task") do |v|

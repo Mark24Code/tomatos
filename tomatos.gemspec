@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.authors = ["Mark24"]
   spec.email = ["mark.zhangyoung@qq.com"]
 
-  spec.summary = "Tomato click for mac terminal"
-  spec.description = "Tomato click for mac terminal"
+  spec.summary = "Command line Tomato Clock for Mac OS terminal"
+  spec.description = "Command line Tomato Clock for Mac OS terminal"
   spec.homepage = "https://github.com/Mark24Code/tomatos"
   spec.license = "MIT"
   spec.required_ruby_version = ">= 2.6.0"

@@ -4,13 +4,12 @@ require_relative "tomatos/version"
 
 module Tomatos
   class Error < StandardError; end
-  # Your code goes here...
 end
 
 module Tomatos
   class App
     def initialize(options)
-      @title = 'Tomatos'
+      @title = 'Tomatos Clock'
       @time_delta = options[:time] || '15m'
       @time_value = 0
       @unit = 'm'
@@ -60,9 +59,9 @@ module Tomatos
         sleep(1)
         system('clear')
         count_down -= 1
-        puts "#{@title}:"
+        puts @title
         puts "@time: #{self.count_down_text(count_down)}"
-        puts "@message: #{@message}"
+        puts "@message: #{@message}" if @message
       end
       sleep(total_secs)
       self.notice("#{@time_value} #{unit_text} Finished", @title, @message)
