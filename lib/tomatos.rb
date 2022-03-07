@@ -60,7 +60,7 @@ module Tomatos
         sleep(1)
         system('clear')
         count_down -= 1
-        puts "Tomato:"
+        puts "#{@title}:"
         puts "@time: #{self.count_down_text(count_down)}"
         puts "@message: #{@message}"
       end
