@@ -5,6 +5,17 @@
 require_relative '../lib/tomatos'
 require 'optparse'
 
+stop_follow = lambda { puts 'See you later :D' }
+trap("INT") { 
+  stop_follow.call
+  exit!
+}
+
+at_exit {
+  stop_follow.call
+}
+
+
 options = {}
 OptionParser.new do |parser|
   parser.banner = "Usage: tomato.rb [options]"
@@ -18,6 +29,4 @@ OptionParser.new do |parser|
 end.parse!
 
 
-if __FILE__ == $0
-  Tomatos::App.new(options).run
-end
+Tomatos::App.new(options).run

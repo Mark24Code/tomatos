@@ -10,7 +10,7 @@ end
 module Tomatos
   class App
     def initialize(options)
-      @title = 'Tomato'
+      @title = 'Tomatos'
       @time_delta = options[:time] || '15m'
       @time_value = 0
       @unit = 'm'
@@ -46,15 +46,15 @@ module Tomatos
       mins = count_down / 60 % 60
       secs = count_down % 60
 
-      return "#{mins < 10 ? '0' + mins.to_s : mins.to_s} 分钟 #{secs < 10 ? '0'+secs.to_s : secs.to_s} 秒"
+      return "#{mins < 10 ? '0' + mins.to_s : mins.to_s} min #{secs < 10 ? '0'+secs.to_s : secs.to_s} sec"
     end
 
     def run
       self.parser_delta_time
-      unit_text = @unit == 'm' ? '分钟' : '秒'
+      unit_text = @unit == 'm' ? 'min' : 'sec'
       total_secs = @unit == 'm' ? @time_value.to_i * 60 : @time_value.to_i
 
-      self.notice("开始计时#{@time_value} #{unit_text}", @title, @message)
+      self.notice("Start: #{@time_value} #{unit_text}", @title, @message)
       count_down = total_secs.dup
       total_secs.times do
         sleep(1)
@@ -65,7 +65,7 @@ module Tomatos
         puts "@message: #{@message}"
       end
       sleep(total_secs)
-      self.notice("#{@time_value} #{unit_text} 计时完成", @title, @message)
+      self.notice("#{@time_value} #{unit_text} Finished", @title, @message)
     end
   end
 end
