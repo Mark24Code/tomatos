@@ -1,0 +1,23 @@
+
+#!/usr/bin/env ruby
+# frozen_string_literal: true
+
+require_relative '../lib/tomatos'
+require 'optparse'
+
+options = {}
+OptionParser.new do |parser|
+  parser.banner = "Usage: tomato.rb [options]"
+
+  parser.on("-tTIME", "--time=TIME", "Time delta: `15m` means 15mins, `30s` means 30secs, default use mins ") do |v|
+    options[:time] = v
+  end
+  parser.on("-mMESSAGE", "--message=MESSAGE", "Message for this time task") do |v|
+    options[:message] = v
+  end
+end.parse!
+
+
+if __FILE__ == $0
+  Tomatos::App.new(options).run
+end
