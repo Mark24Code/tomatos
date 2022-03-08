@@ -55,7 +55,7 @@ module Tomatos
 
       self.notice("Start: #{@time_value} #{unit_text}", @title, @message)
       count_down = total_secs.dup
-      total_secs.times do
+      while count_down > 0 do
         sleep(1)
         system('clear')
         count_down -= 1
@@ -63,7 +63,6 @@ module Tomatos
         puts "@time: #{self.count_down_text(count_down)}"
         puts "@message: #{@message}" if @message
       end
-      sleep(total_secs)
       self.notice("#{@time_value} #{unit_text} Finished", @title, @message)
     end
   end
